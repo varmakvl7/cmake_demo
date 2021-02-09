@@ -87,6 +87,10 @@ private:
 #define A_LOG_SEV(severity) for(std::ostringstream stream; Logger::getLogger()->push(severity, stream);) Logger::getLogger()->pre(stream, severity)
 #define A_LOG(severity) A_LOG_SEV(severity) << __FILE__ << ":" << __LINE__ << ":"
 
+#define AIPException_LOG_ERROR A_LOG_SEV(boost::log::trivial::severity_level::error) << __FILE__ << ":" << __LINE__ << ":"
+#define AIPException_LOG_FATAL A_LOG_SEV(boost::log::trivial::severity_level::fatal) << __FILE__ << ":" << __LINE__ << ":"
+
+
 #define LOG_TRACE  A_LOG(boost::log::trivial::severity_level::trace)
 #define LOG_DEBUG  A_LOG(boost::log::trivial::severity_level::debug)
 #define LOG_INFO   A_LOG(boost::log::trivial::severity_level::info)
