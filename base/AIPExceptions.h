@@ -35,11 +35,11 @@ public:
 	{
 		if (type > AIP_FATAL)
 		{
-			LOG_FATAL << "AIPException<" << type << "> <" << logMessage.c_str() << ">";
+			AIP_Exception_LOG_FATAL << "AIPException<" << type << "> <" << logMessage.c_str() << ">";
 		} 
 		else
 		{
-			LOG_ERROR << "AIPException<" << type << ">" << file << ":" << line << ":" << logMessage.c_str() << ">";
+			AIP_Exception_LOG_ERROR << "AIPException<" << type << "> <" << logMessage.c_str() << ">";
 		}
 
 		message = logMessage;
