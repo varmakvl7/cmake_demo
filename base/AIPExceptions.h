@@ -33,13 +33,16 @@ public:
 	 */	
 	explicit AIPExceptions(int type,const std::string file,int line,const std::string logMessage) : runtime_error(std::to_string(type))
 	{
+		std::cout << "I am stdcout" << std::endl;	
 		if (type > AIP_FATAL)
 		{
-			AIP_Exception_LOG_FATAL << "AIPException<" << type << "> <" << logMessage.c_str() << ">";
+			A_LOG_SEV(boost::log::trivial::severity_level::fatal) << file << ":" << line << ":" << "AIPException<" << type << ">  " << logMessage.c_str();
+			//AIPException_LOG_FATAL(file,line);
 		} 
 		else
 		{
-			AIP_Exception_LOG_ERROR << "AIPException<" << type << "> <" << logMessage.c_str() << ">";
+			A_LOG_SEV(boost::log::trivial::severity_level::error) << file << ":" << line << ":" << "AIPException<" << type << "> " << logMessage.c_str();
+			//AIPException_LOG_ERROR(file,line);
 		}
 
 		message = logMessage;
