@@ -2,5 +2,5 @@
 int main()
 {
 std::cou<<"HEllo Wowoowow[opkdpfkd";
-return 0;
+return 1;
 }
